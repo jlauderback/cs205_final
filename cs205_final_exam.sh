@@ -15,3 +15,14 @@
 # The data file will be passed in to the script as a positional parameter and will not
 # necessarily be called pokemon.dat. However, you can assume that any file passed to this
 # script will be formatted exactly the way pokemon.dat is formatted.
+
+FILE=$1
+NLP='{count[$13]++} END {print count["False"]}' $1
+AHP='{sum+=$6; n++} END {if (n>0) print sum/n;}' $1
+AD='{sum+=$8; n++} END {if (n>0) print sum/n;}' $1
+
+echo " ======= SUMMARY OF POKEMON.DAT ======"
+echo "    Total Non-Legendary Pokemon: "$NLP
+echo "    Avg. HP: "$AHP
+echo "    Avg. Defense: "$AD
+echo " ======= END SUMMARY ======="
